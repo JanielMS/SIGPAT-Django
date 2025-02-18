@@ -1,0 +1,211 @@
+// layout.scss
+@import 'variables';
+
+
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.rounded{
+    border-radius: 50px !important;
+}
+
+.sidebar {
+    width: 70px;
+    height: 100%;
+    background-color: $light-color;
+    color: $dark-color;
+    display: flex;
+    flex-direction: column;
+    transition: width 0.3s ease;
+    position: fixed; /* Mantém a barra lateral fixa na tela */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* Garante que a barra lateral esteja acima do conteúdo */
+
+    &.open {
+        width: 250px;
+    }
+
+    &.closed {
+        width: 70px;
+
+        .sidebar-header .brand{
+            display: none;
+        }
+
+        .menu .menu-item .text,
+        .dropdown .btn .text{
+            display: none;
+        }
+
+        .dropdown .btn{
+            margin-left: calc(1rem - 4px);
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+
+            & .icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        & + .main-content{
+            margin-left: 120px;
+        }
+      }
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        color: $dark-secundary-color;
+        
+        & .brand {
+            margin: 0;
+            margin-left: 1rem;
+            font-size: 1.2rem;
+            display: block;
+
+
+          }
+
+        .toggle-sidebar {
+            background: none;
+            border: none;
+            color: $dark-secundary-color;
+            font-size: 1.6rem;
+            cursor: pointer;
+          }
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem 0;
+        flex-grow: 1;
+        overflow-x: hidden;
+        overflow-y: auto; /* Adiciona rolagem à barra lateral se necessário */
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.3rem;
+            color: $dark-secundary-color;
+            text-decoration: none;
+            transition: background 0.3s ease;
+
+            .icon {
+                font-size: 1.5rem;
+                margin-right: 1rem;
+            } 
+            
+            .text {
+                font-size: 1rem;
+                text-align: left;
+            }            
+            
+            &.active{
+                padding-left: calc(1rem + 1px);
+                border-left: 4px solid $primary-color;
+            }
+            &:hover {
+                background-color: darken($light-color, 15%);
+            }
+            
+        }
+    }
+
+    .dropdown .btn{
+        width: 200px;
+        height: 50px;
+        margin: 1.2rem 0 1.35rem 1rem;
+        font-size: 1.35rem;
+        background-color: $primary-color;
+        color: $light-color;
+
+        transition: 0.35s ease-out;
+    }
+
+    & + .main-content{
+        margin-left: 300px;
+        transition: margin-left 0.3s ease;
+        width: 100%;
+    }
+
+}
+
+.day-list{
+
+    min-width: fit-content;
+    max-width: 1400px;
+}
+
+
+select{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 2px solid #ddd;
+    border-radius: $border-radius;
+    padding: 10px 20px;
+    margin-right: .7rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &::after {
+        content: '\f0d7';
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        font-size: 16px;
+        color: #333;
+    }
+
+    &:focus {
+        border-color: $primary-color;
+        outline: none;
+    }
+
+    &:hover {
+        border-color: darken($primary-color, 10%);
+        background-color: #f9f9f9;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+      width: 100vw;
+       /* Limita a largura máxima da barra lateral */
+      
+      &.open{
+        width: 100%;
+        max-width: 300px;
+        &.open + .main-content{
+            margin-left: 70px;
+
+        }
+      }
+      &.closed + .main-content{
+        margin-left: 70px;
+      }
+    }
+  
+    .menu {
+      overflow-y: auto; /* Adiciona rolagem se necessário */
+      max-height: calc(100vh); /* Ajusta a altura máxima da barra lateral */
+    }
+  }
