@@ -84,7 +84,7 @@ body {
         text-align: left; }
       .sidebar .menu .menu-item.active {
         padding-left: calc(1rem + 1px);
-        border-left: 4px solid #fac055; }
+        border-left: 4px solid #6355fa; }
       .sidebar .menu .menu-item:hover {
         background-color: #c7ccd5; }
   .sidebar .dropdown .btn {
@@ -92,7 +92,7 @@ body {
     height: 50px;
     margin: 1.2rem 0 1.35rem 1rem;
     font-size: 1.35rem;
-    background-color: #fac055;
+    background-color: #6355fa;
     color: #f3f4f6;
     transition: 0.35s ease-out; }
   .sidebar + .main-content {
@@ -127,10 +127,10 @@ select {
     font-size: 16px;
     color: #333; }
   select:focus {
-    border-color: #fac055;
+    border-color: #6355fa;
     outline: none; }
   select:hover {
-    border-color: #f9ae23;
+    border-color: #3623f9;
     background-color: #f9f9f9; }
 
 @media (max-width: 768px) {
@@ -157,18 +157,11 @@ select {
   .btn.btn-danger {
     background-color: #dd5f5f !important; }
   .btn.btn-primary {
-    background-color: #fac055 !important;
-    border-color: #e29507; }
+    background-color: #6355fa !important;
+    border-color: #1907e2; }
 
-.modal-content {
-  background-color: #f3f4f6;
-  border-radius: 10px;
-  border: 1px solid #515252;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease; }
-
-.modal-header {
-  background-color: #fac055;
+.form-header {
+  background-color: #6355fa;
   color: #27303f;
   border-bottom: 1px solid #515252;
   border-top-left-radius: 10px;
@@ -177,24 +170,16 @@ select {
   display: flex;
   justify-content: space-between;
   align-items: center; }
-  .modal-header .modal-title {
+  .form-header .form-title {
     font-size: 1.25rem;
     font-weight: 500; }
-  .modal-header .btn-close {
-    background-color: transparent;
-    border: none;
-    color: #27303f;
-    font-size: 1.3rem;
-    opacity: 0.7; }
-    .modal-header .btn-close:hover {
-      opacity: 1; }
 
-.modal-body {
+.form-body {
   color: #27303f;
   padding: 1.5rem;
   font-size: 1rem;
   line-height: 1.5; }
-  .modal-body input, .modal-body textarea {
+  .form-body input, .form-body textarea {
     background-color: transparent;
     border: 1px solid #515252;
     border-radius: 8px;
@@ -204,22 +189,22 @@ select {
     width: 100%;
     box-sizing: border-box;
     transition: all 0.3s ease-in-out; }
-    .modal-body input:focus, .modal-body textarea:focus {
+    .form-body input:focus, .form-body textarea:focus {
       outline: none;
-      border-color: #fac055;
-      box-shadow: 0 0 0 2px rgba(250, 192, 85, 0.25); }
-    .modal-body input:hover, .modal-body textarea:hover {
+      border-color: #6355fa;
+      box-shadow: 0 0 0 2px rgba(99, 85, 250, 0.25); }
+    .form-body input:hover, .form-body textarea:hover {
       border-color: #383838; }
-    .modal-body input:disabled, .modal-body textarea:disabled {
+    .form-body input:disabled, .form-body textarea:disabled {
       background-color: #e0e0e0;
       border-color: #d0d0d0;
       cursor: not-allowed; }
-    .modal-body input::placeholder, .modal-body textarea::placeholder {
+    .form-body input::placeholder, .form-body textarea::placeholder {
       color: #515252;
       opacity: 0.6; }
-  .modal-body textarea {
+  .form-body textarea {
     height: 60px; }
-  .modal-body input[type="date"] {
+  .form-body input[type="date"] {
     background-color: #f3f4f6;
     border: 1px solid #515252;
     border-radius: 8px;
@@ -229,26 +214,26 @@ select {
     width: 100%;
     box-sizing: border-box;
     transition: all 0.3s ease-in-out; }
-    .modal-body input[type="date"]:focus {
+    .form-body input[type="date"]:focus {
       outline: none;
-      border-color: #fac055;
-      box-shadow: 0 0 0 2px rgba(250, 192, 85, 0.25);
+      border-color: #6355fa;
+      box-shadow: 0 0 0 2px rgba(99, 85, 250, 0.25);
       background-color: #fff; }
-    .modal-body input[type="date"]:hover {
+    .form-body input[type="date"]:hover {
       border-color: #383838; }
-    .modal-body input[type="date"]::-webkit-calendar-picker-indicator {
-      background-color: #fac055;
+    .form-body input[type="date"]::-webkit-calendar-picker-indicator {
+      background-color: #6355fa;
       border-radius: 50%;
       padding: 5px;
       cursor: pointer; }
-    .modal-body input[type="date"]:disabled {
+    .form-body input[type="date"]:disabled {
       background-color: #e0e0e0;
       border-color: #d0d0d0;
       cursor: not-allowed; }
-    .modal-body input[type="date"]::placeholder {
+    .form-body input[type="date"]::placeholder {
       color: #515252;
       opacity: 0.6; }
-  .modal-body select {
+  .form-body select {
     background-color: #f3f4f6;
     border: 1px solid #515252;
     border-radius: 8px;
@@ -259,145 +244,81 @@ select {
     box-sizing: border-box;
     transition: all 0.3s ease-in-out;
     appearance: none; }
-    .modal-body select::-ms-expand {
+    .form-body select::-ms-expand {
       display: none; }
-    .modal-body select:focus {
+    .form-body select:focus {
       outline: none;
-      border-color: #fac055;
-      box-shadow: 0 0 0 2px rgba(250, 192, 85, 0.25);
+      border-color: #6355fa;
+      box-shadow: 0 0 0 2px rgba(99, 85, 250, 0.25);
       background-color: #fff; }
-    .modal-body select:hover {
+    .form-body select:hover {
       border-color: #383838; }
-    .modal-body select::placeholder {
+    .form-body select::placeholder {
       color: #515252;
       opacity: 0.6; }
-    .modal-body select option {
+    .form-body select option {
       background-color: #f3f4f6;
       color: #27303f;
       padding: 1rem;
       margin-top: 1rem; }
-  .modal-body label {
+  .form-body label {
     font-size: 1rem;
     font-weight: 500;
     color: #27303f;
     margin-bottom: 0.5rem;
     display: block; }
 
-.modal-footer {
+.form-footer {
   background-color: #f3f4f6;
   border-top: 1px solid #515252;
   padding: 1rem;
   display: flex;
   justify-content: flex-end; }
-  .modal-footer .btn {
-    background-color: #fac055;
+  .form-footer .btn {
+    background-color: #6355fa;
     color: #27303f;
     border: none;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     font-weight: 600;
     transition: background-color 0.3s ease; }
-    .modal-footer .btn:hover {
-      background-color: #f9ae23; }
-    .modal-footer .btn:focus {
+    .form-footer .btn:hover {
+      background-color: #3623f9; }
+    .form-footer .btn:focus {
       outline: none;
-      box-shadow: 0 0 0 0.2rem rgba(250, 192, 85, 0.25); }
-  .modal-footer .btn-secondary {
+      box-shadow: 0 0 0 0.2rem rgba(99, 85, 250, 0.25); }
+  .form-footer .btn-secondary {
     background-color: transparent;
     color: #27303f;
     border: 1px solid #515252;
     margin-right: 1rem; }
-    .modal-footer .btn-secondary:hover {
+    .form-footer .btn-secondary:hover {
       background-color: #515252;
       color: #f3f4f6; }
 
-.modal.fade .modal-dialog {
-  transition: transform 0.3s ease-out; }
-
-.modal.fade.show .modal-dialog {
-  transform: translate(0, 0); }
-
-table:is(:not(.table-card)) tr {
+table tr {
   height: 58px; }
-  table:is(:not(.table-card)) tr td span.more-action:last-child {
+  table tr td span.more-action:last-child {
     display: inline-block;
     margin-left: 2.5rem; }
-  table:is(:not(.table-card)) tr td.trow {
+  table tr td.trow {
     padding-left: 3rem;
     font-size: 1.05rem;
     font-weight: 600;
     color: #27303f;
     position: relative; }
-    table:is(:not(.table-card)) tr td.trow p {
+    table tr td.trow p {
       font-size: .8rem;
       font-weight: normal;
       color: #515252; }
-  table:is(:not(.table-card)) tr.no-divider {
+  table tr.no-divider {
     border-color: transparent; }
 
-table:is(:not(.table-card)) tbody tr td .actions {
+table tbody tr td .actions {
   display: none; }
 
-table:is(:not(.table-card)) tbody tr:hover td .actions {
+table tbody tr:hover td .actions {
   display: inline; }
-
-table:is(:not(.table-card)) .nivel-0 {
-  padding-left: 0rem; }
-
-table:is(:not(.table-card)) .nivel-1 {
-  padding-left: 1rem; }
-
-table:is(:not(.table-card)) .nivel-2 {
-  padding-left: 2rem; }
-
-table:is(:not(.table-card)) .nivel-3 {
-  padding-left: 3rem; }
-
-table:is(:not(.table-card)) .nivel-4 {
-  padding-left: 4rem; }
-
-table:is(:not(.table-card)) .nivel-5 {
-  padding-left: 5rem; }
-
-table:is(:not(.table-card)) .nivel-6 {
-  padding-left: 6rem; }
-
-table:is(:not(.table-card)) .nivel-7 {
-  padding-left: 7rem; }
-
-table:is(:not(.table-card)) .nivel-8 {
-  padding-left: 8rem; }
-
-table:is(:not(.table-card)) .nivel-9 {
-  padding-left: 9rem; }
-
-table:is(:not(.table-card)) .nivel-10 {
-  padding-left: 10rem; }
-
-table.table-card tbody {
-  max-width: calc(325px * 4);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; }
-  table.table-card tbody tr {
-    display: block;
-    position: relative;
-    padding: 1.2rem;
-    width: 325px;
-    height: 190px; }
-    table.table-card tbody tr td {
-      display: block; }
-      table.table-card tbody tr td .actions {
-        position: absolute;
-        bottom: 1rem;
-        right: 1rem;
-        opacity: 0;
-        transition: 0.2s ease-in-out; }
-    table.table-card tbody tr:hover .actions {
-      opacity: 1; }
-  table.table-card tbody.home-grid tr td a i {
-    margin-right: 1rem;
-    font-size: 2.4rem; }
 
 .actions-header {
   display: flex;
@@ -473,7 +394,7 @@ ul.errorlist {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #fac055, #f9b73c); }
+  background: linear-gradient(135deg, #6355fa, #4c3cf9); }
 
 .container-auth {
   display: flex;
@@ -496,7 +417,7 @@ ul.errorlist {
     color: #333;
     font-family: var(--font-header); }
   .form-auth-box h3 {
-    color: #fac055;
+    color: #6355fa;
     font-family: var(--font-header);
     font-weight: 800;
     font-size: 1.3rem;
