@@ -1,0 +1,35 @@
+dev_addr: 127.0.0.1:8001
+
+site_name: SIGPAT - Sistema de Gestão de Patrimônio
+
+
+theme:
+  name: material
+  features:
+    # - navigation.tabs
+    - navigation.instant
+    - navigation.expand
+    - toc.integrate 
+    - search.highlight
+    - content.code.copy
+  
+
+plugins:
+  - search
+  - mermaid2:
+      javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs
+
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tasklist
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+          # make exceptions to highlighting of code:
+        custom_fences:
+          - name: mermaid
+            class: mermaid
+            format: !!python/name:mermaid2.fence_mermaid_custom
