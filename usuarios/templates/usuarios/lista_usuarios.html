@@ -1,0 +1,53 @@
+{% extends './base.html' %}
+
+{% block AppContent %}
+<h2>Lista de Usuários</h2>
+
+<form method="get" class="mt-5 mb-4">
+    <select name="group">
+        <option value="">Todos</option>
+        {% for group in groups %}
+        <option value="{{ group.name }}" {% if request.GET.group == group.name %}selected{% endif %}>{{ group.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-secondary">Filtrar</button>
+</form>
+
+<table class="table">
+    <tr>
+        <th>Usuário</th>
+        <th>E-mail</th>
+        <th>Grupo</th>
+        <th></th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{% for group in user.groups.all %}{{ group.name }}{% empty %}Sem Grupo{% endfor %}</td>
+        <td>
+            <div class="actions">
+                <a href="{% url 'usuarios:mudar-grupo-usuario' user.pk%}">Alterar Grupo <i class="ri-arrow-right-up-box-fill"></i></a>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if is_paginated %}
+<div>
+    {% if page_obj.has_previous %}
+        <a href="?page=1">Primeira</a>
+        <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+    {% endif %}
+
+    Página {{ page_obj.number }} de {{ paginator.num_pages }}
+
+    {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Próxima</a>
+        <a href="?page={{ paginator.num_pages }}">Última</a>
+    {% endif %}
+</div>
+{% endif %}
+
+{% endblock %}

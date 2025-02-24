@@ -11,6 +11,17 @@ body{
     border-radius: 50px !important;
 }
 
+form, .form-body{
+    width: 100%;
+    
+
+    .helptext {
+        font-size: 12px;
+        color: #666;
+        display: block;
+        margin-top: 5px;
+    }
+}
 .sidebar {
     width: 70px;
     height: 100%;

@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # APPS SIGPAT
+    'bens',
+    'categorias',
+    'departamentos',
+    'fornecedores',
+    'movimentacoes',
+    'dashboard',
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -53,7 +61,8 @@ ROOT_URLCONF = 'core.urls'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
-# LOGIN_REDIRECT_URL = '/dashboard/'
+LOGIN_REDIRECT_URL = '/dashboard/'
+LOGOUT_REDIRECT_URL = "/usuarios/login/"
 
 TEMPLATES = [
     {

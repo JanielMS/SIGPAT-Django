@@ -1,0 +1,10 @@
+{% extends './base.html' %}
+
+{% block AppContent %}
+<h2>Tem certeza que deseja excluir sua conta?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar Exclusão</button>
+</form>
+<a href="{% url 'usuarios:perfil' %}">Cancelar</a>
+{% endblock %}

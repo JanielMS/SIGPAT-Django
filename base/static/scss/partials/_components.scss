@@ -10,12 +10,20 @@
     }
 
     &.btn-danger{
-        background-color: #dd5f5f !important;
+        border: 1px solid #dd5f5f !important;
+        background-color: transparent !important; 
+        color: #dd5f5f;
+        font-weight: 600;
     }
 
     &.btn-primary{
         background-color: $primary-color !important;
         border-color: darken($primary-color, 20%);
+        font-weight: 600;
+
+        i{
+            font-size: 1.3rem;
+        }
     }
     
 }
@@ -24,7 +32,7 @@
 
 .form-header {
     background-color: $primary-color;
-    color: $dark-color;
+    color: $white-color;
     border-bottom: 1px solid $dark-secundary-color;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -45,10 +53,13 @@
     padding: 1.5rem;
     font-size: 1rem;
     line-height: 1.5;
+    display: grid;
+    flex-wrap: wrap;
 
     input, textarea{
         background-color: transparent;
-        border: 1px solid $dark-secundary-color;
+        border: none;
+        border-bottom: 1px solid $dark-secundary-color;
         border-radius: 8px;
         padding: 0.5rem 1rem;
         color: $dark-color;
@@ -178,17 +189,16 @@
 }
 
 .form-footer {
-    background-color: $light-color;
+    
     border-top: 1px solid $dark-secundary-color;
     padding: 1rem;
-    display: flex;
-    justify-content: flex-end;
+
 
     .btn {
         background-color: $primary-color;
-        color: $dark-color;
+        color: $white-color;
         border: none;
-        border-radius: 5px;
+        border-radius: $border-radius;
         padding: 0.5rem 1rem;
         font-weight: 600;
         transition: background-color 0.3s ease;
@@ -247,11 +257,13 @@ table{
             }
         }
         tbody tr td .actions{
-            display: none;
+            opacity: 0;
+            visibility: hidden;
         }
     
         tbody tr:hover td .actions{
-            display: inline;
+            opacity: 1;
+            visibility: visible;
         }
     
 } 

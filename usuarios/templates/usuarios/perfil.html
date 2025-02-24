@@ -1,0 +1,23 @@
+{% extends './base.html' %}
+
+{% block AppContent %}
+
+    <h2>Meu Perfil</h2>
+
+<div class="form-body">
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary"><i class="ri-save-line"></i> Salvar Alterações</button>
+     <a href="{% url 'usuarios:deletar-conta' %}" class="btn btn-danger">Excluir minha conta</a>
+</form>
+</div>
+<div class="form-footer">
+
+    {% if request.user.groups.all.0.name == "Admin" %}
+        <a href="{% url 'usuarios:lista-usuarios' %}">
+            <button class="btn btn-secondary">Gerenciar Usuários</button>
+        </a>
+</div>
+{% endif %}
+{% endblock %}
