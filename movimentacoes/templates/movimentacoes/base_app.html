@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block PageTitle %}
+Movimentações
+{% endblock %}
+
+{% block content %}
+<div class="p-5">
+    <div class="actions-header d-flex align-items-center justify-content-between">
+        <div>
+            <h2>Movimentações</h2>
+        </div>
+        <div class="actions">
+            <a href="{% url 'movimentacoes:movimentacao-create' %}" class="btn btn-secondary load-modal"><i class="ri-add-line"></i> Nova movimentacao</a>
+        </div>
+    </div>
+    <div class="mt-5">
+        {% block AppContent %}
+    
+        {% endblock AppContent %}
+    </div>
+</div>
+
+{% endblock content %}
