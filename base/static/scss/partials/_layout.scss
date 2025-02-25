@@ -17,6 +17,18 @@ form, .form-body {
     }
 }
 
+ul.errorlist {
+    background: var(--error-bg);
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: left;
+    font-size: 14px;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
 // ===========================
 // Sidebar
 // ===========================

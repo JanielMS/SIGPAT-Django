@@ -1,0 +1,53 @@
+{% extends './base_app.html' %}
+
+{% block AppContent %}
+{% if categorias %}
+<table class="table table-responsive table-hover shadow">
+        <thead class="table-light">
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categoria in categorias %}
+            <tr>
+                <td>{{ categoria.nome }}</td>
+                <td>{{ categoria.descricao}}</td>
+                <td class="text-end">
+                    <div class="actions">
+                        <a href="{% url 'categorias:categoria-update' categoria.pk %}" class="btn btn-success" title="Editar Categoria"><i class="ri-edit-line"></i> Editar</a>
+                        <a href="{% url 'categorias:categoria-delete' categoria.pk %}" class="btn btn-danger" title="Apagar Categoria"><i class="ri-delete-bin-7-line"></i> Excluir</a>
+                        
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+</table>
+{% else %}
+<p>Nenhuma Categoria Cadastrada!</p>
+{% endif %}
+
+{% if is_paginated %}
+  <div class="pagination">
+    <span class="step-links">
+        {% if categorias.has_previous %}
+            <a href="?page=1">&laquo; primeira</a>
+            <a href="?page={{ categorias.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ categorias.number }} de {{ categorias.paginator.num_pages }}.
+        </span>
+
+        {% if categorias.has_next %}
+            <a href="?page={{ categorias.next_page_number }}">próxima</a>
+            <a href="?page={{ categorias.paginator.num_pages }}">última &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+{% endif %}
+{% endblock %}
+
