@@ -61,6 +61,8 @@ ROOT_URLCONF = 'core.urls'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
+HANDLER403 = 'core.views.custom_403'
+
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = "/usuarios/login/"
 

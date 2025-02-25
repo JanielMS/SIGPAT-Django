@@ -2,6 +2,10 @@ dev_addr: 127.0.0.1:8001
 
 site_name: SIGPAT - Sistema de Gestão de Patrimônio
 
+nav:
+ - Inicio: index.md
+ - Aplicativos:
+    - Usuarios: "apps/usuarios.md"
 
 theme:
   name: material
@@ -9,7 +13,7 @@ theme:
     # - navigation.tabs
     - navigation.instant
     - navigation.expand
-    - toc.integrate 
+    # - toc.integrate 
     - search.highlight
     - content.code.copy
   
@@ -18,7 +22,10 @@ plugins:
   - search
   - mermaid2:
       javascript: https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs
-
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: ["."]
 
 markdown_extensions:
   - pymdownx.highlight

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="mt-5">
+    <h2>Acesso Negado 🚫</h2>
+    <p>Você não tem permissão para acessar esta página.</p>
+    {% comment %} <a href="{% url 'dashboard' %}">Voltar para o Dashboard</a> {% endcomment %}
+</div>
+{% endblock %}

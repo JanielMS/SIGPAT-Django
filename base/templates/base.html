@@ -36,10 +36,15 @@
                         <span class="icon"><i class="ri-home-5-line"></i></span>
                         <span class="text">Inicio</span>
                     </a>
+                    <a href="{% url 'documentacao'%}" class="menu-item {% if request.path == '/documentacao/' %}active{% endif %}">
+                        <span class="icon"><i class="ri-book-2-line"></i></span>
+                        <span class="text">Documentação</span>
+                    </a>
                     <a href="{% url 'usuarios:perfil'%}" class="menu-item {% if request.path == '/perfil/' %}active{% endif %}">
                         <span class="icon"><i class="ri-user-line"></i></span>
                         <span class="text">Perfil</span>
                     </a>
+                    
                     {% comment %} <a href="{% url 'listar-transacoes'%}" class="menu-item {% if request.path == '/transacoes/' %}active{% endif %}">
                         <span class="icon"><i class="ri-list-indefinite"></i></span>
                         <span class="text">Transações</span>
