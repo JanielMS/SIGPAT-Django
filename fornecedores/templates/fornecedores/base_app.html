@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block PageTitle %}
+Fornecedores
+{% endblock %}
+
+{% block content %}
+<div class="p-5">
+    <div class="actions-header d-flex align-items-center justify-content-between">
+        <div>
+            <h2>Fornecedores</h2>
+        </div>
+        <div class="actions">
+            <a href="{% url 'fornecedores:fornecedor-create' %}" class="btn btn-secondary load-modal"><i class="ri-add-line"></i> Novo Fornecedor</a>
+        </div>
+    </div>
+    <div class="mt-5">
+        {% block AppContent %}
+    
+        {% endblock AppContent %}
+    </div>
+</div>
+
+{% endblock content %}

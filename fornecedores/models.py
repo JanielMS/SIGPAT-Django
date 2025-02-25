@@ -14,11 +14,15 @@ class Fornecedor(models.Model):
         telefone (str): Número de telefone do fornecedor.
         endereco (str): Endereço do fornecedor.
         descricao (str): Descrição adicional sobre o fornecedor.
+        cnpj (str): O CNPJ do fornecedor.
+        ativo (boolean): Status do fornecedor
     """
     nome = models.CharField(max_length=255, unique=True, help_text="Nome do fornecedor.")
     email = models.EmailField(unique=True, help_text="E-mail do fornecedor.")
     telefone = models.CharField(max_length=15, blank=True, help_text="Número de telefone do fornecedor.")
     endereco = models.CharField(max_length=255, blank=True, help_text="Endereço do fornecedor.")
+    cnpj = models.CharField(max_length=18, unique=True)
+    ativo = models.BooleanField(default=True)
     descricao = models.TextField(blank=True, help_text="Descrição adicional sobre o fornecedor.")
 
     def __str__(self):

@@ -44,6 +44,10 @@
                         <span class="icon"><i class="ri-instance-line"></i></span>
                         <span class="text">Departamentos</span>
                     </a>
+                    <a href="{% url 'fornecedores:fornecedor-list'%}" class="menu-item {% if request.path == '/fornecedores/' %}active{% endif %}" title="Fornecedores">
+                        <span class="icon"><i class="ri-user-community-line"></i></span>
+                        <span class="text">Fornecedores</span>
+                    </a>
                     <a href="{% url 'documentacao'%}" class="menu-item {% if request.path == '/documentacao/' %}active{% endif %}" title="Documentação">
                         <span class="icon"><i class="ri-book-2-line"></i></span>
                         <span class="text">Documentação</span>
