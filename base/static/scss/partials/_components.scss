@@ -1,35 +1,35 @@
-// components.scss
+// ===========================
+// Components
+// ===========================
+@import 'variables';
 
-@import 'variables'; // Importando as variáveis de cores
-
-
-.btn{
+// ===========================
+// Buttons
+// ===========================
+.btn {
     border-radius: $border-radius;
-    &.btn-success{
+    &.btn-success {
         background-color: #469f46 !important;
     }
-
-    &.btn-danger{
+    &.btn-danger {
         border: 1px solid #dd5f5f !important;
-        background-color: transparent !important; 
+        background-color: transparent !important;
         color: #dd5f5f;
         font-weight: 600;
     }
-
-    &.btn-primary{
+    &.btn-primary {
         background-color: $primary-color !important;
         border-color: darken($primary-color, 20%);
         font-weight: 600;
-
-        i{
+        i {
             font-size: 1.3rem;
         }
     }
-    
 }
 
-
-
+// ===========================
+// Forms
+// ===========================
 .form-header {
     background-color: $primary-color;
     color: $white-color;
@@ -40,12 +40,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     .form-title {
         font-size: 1.25rem;
         font-weight: 500;
     }
-
 }
 
 .form-body {
@@ -56,10 +54,9 @@
     display: grid;
     flex-wrap: wrap;
 
-    input, textarea{
+    input, textarea, select {
         background-color: transparent;
-        border: none;
-        border-bottom: 1px solid $dark-secundary-color;
+        border: 1px solid $dark-secundary-color;
         border-radius: 8px;
         padding: 0.5rem 1rem;
         color: $dark-color;
@@ -67,133 +64,38 @@
         width: 100%;
         box-sizing: border-box;
         transition: all 0.3s ease-in-out;
-
         &:focus {
             outline: none;
             border-color: $primary-color;
             box-shadow: 0 0 0 2px rgba($primary-color, 0.25);
         }
-    
         &:hover {
             border-color: darken($dark-secundary-color, 10%);
         }
-
         &:disabled {
             background-color: #e0e0e0;
             border-color: #d0d0d0;
             cursor: not-allowed;
         }
-    
         &::placeholder {
             color: $dark-secundary-color;
             opacity: 0.6;
         }
     }
-
-    textarea{
+    textarea {
         height: 60px;
     }
-    input[type="date"] {
-        background-color: $light-color;
-        border: 1px solid $dark-secundary-color;
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-        color: $dark-color;
-        font-size: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-        transition: all 0.3s ease-in-out;
-        
-        &:focus {
-            outline: none;
-            border-color: $primary-color;
-            box-shadow: 0 0 0 2px rgba($primary-color, 0.25);
-            background-color: #fff; // Deixa o fundo branco quando o campo estiver em foco
-        }
-    
-        &:hover {
-            border-color: darken($dark-secundary-color, 10%);
-        }
-    
-        &::-webkit-calendar-picker-indicator {
-            background-color: $primary-color; // Cor do ícone do calendário
-            border-radius: 50%;
-            padding: 5px;
-            cursor: pointer;
-        }
-    
-        &:disabled {
-            background-color: #e0e0e0;
-            border-color: #d0d0d0;
-            cursor: not-allowed;
-        }
-    
-        &::placeholder {
-            color: $dark-secundary-color;
-            opacity: 0.6;
-        }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        background-color: $primary-color;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
     }
-
-    select {
-        background-color: $light-color;
-        border: 1px solid $dark-secundary-color;
-        border-radius: 8px;
-        padding: 0.75rem 1rem;
-        color: $dark-color;
-        font-size: 1rem;
-        width: 100%;
-        box-sizing: border-box;
-        transition: all 0.3s ease-in-out;
-        appearance: none; // Remove o estilo padrão do select
-    
-        // Estilo para o ícone da seta
-        &::-ms-expand {
-            display: none; // Remove a seta no IE
-        }
-    
-        // Foco
-        &:focus {
-            outline: none;
-            border-color: $primary-color;
-            box-shadow: 0 0 0 2px rgba($primary-color, 0.25);
-            background-color: $white-color; // Deixa o fundo branco quando em foco
-        }
-    
-        // Hover
-        &:hover {
-            border-color: darken($dark-secundary-color, 10%);
-        }
-    
-        // Placeholder
-        &::placeholder {
-            color: $dark-secundary-color;
-            opacity: 0.6;
-        }
-        
-        & option {
-            background-color: $light-color;
-            color: $dark-color;
-            padding: 1rem;
-            margin-top: 1rem;
-        }
-    }
-
-    label {
-        font-size: 1rem;
-        font-weight: 500;
-        color: $dark-color;
-        margin-bottom: 0.5rem;
-        display: block;
-    }
-
 }
 
 .form-footer {
-    
     border-top: 1px solid $dark-secundary-color;
     padding: 1rem;
-
-
     .btn {
         background-color: $primary-color;
         color: $white-color;
@@ -202,23 +104,19 @@
         padding: 0.5rem 1rem;
         font-weight: 600;
         transition: background-color 0.3s ease;
-
         &:hover {
             background-color: darken($primary-color, 10%);
         }
-
         &:focus {
             outline: none;
             box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.25);
         }
     }
-
     .btn-secondary {
         background-color: transparent;
         color: $dark-color;
         border: 1px solid $dark-secundary-color;
         margin-right: 1rem;
-
         &:hover {
             background-color: $dark-secundary-color;
             color: $light-color;
@@ -226,128 +124,72 @@
     }
 }
 
-
-table{
-        tr{
-            height: 58px;
-            
-            td span.more-action:last-child{
-                display: inline-block;
-                margin-left: 2.5rem;
-            }
-    
-            td.trow{
-                
-                padding-left: 3rem;
-                font-size: 1.05rem;
-                font-weight: 600;
-                color: $dark-color;
-                position: relative;
-    
-                p{
-                    font-size: .8rem;
-                    font-weight: normal;
-                    color: $dark-secundary-color;
-                }
-    
-            }
-    
-            &.no-divider{
-                border-color: transparent;
+// ===========================
+// Tables
+// ===========================
+table {
+    tr {
+        height: 58px;
+        td span.more-action:last-child {
+            display: inline-block;
+            margin-left: 2.5rem;
+        }
+        td.trow {
+            padding-left: 3rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: $dark-color;
+            position: relative;
+            p {
+                font-size: .8rem;
+                font-weight: normal;
+                color: $dark-secundary-color;
             }
         }
-        tbody tr td .actions{
-            opacity: 0;
-            visibility: hidden;
+        &.no-divider {
+            border-color: transparent;
         }
-    
-        tbody tr:hover td .actions{
-            opacity: 1;
-            visibility: visible;
-        }
-    
-} 
-
-.actions-header {
-    display: flex;
-    align-items: center;
-
-    h4{
-        font-size: 24px;
-        font-weight: 600;
-        color: #333;
-        margin-bottom: 15px;
     }
-   
-    .actions {
-        display: flex;
-        gap: 1.6rem;
+    tbody tr td .actions {
+        opacity: 0;
+        visibility: hidden;
+    }
+    tbody tr:hover td .actions {
+        opacity: 1;
+        visibility: visible;
     }
 }
 
+// ===========================
 // Dropdown Menu
+// ===========================
 .dropdown-menu {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 250px;
     margin-top: 10px;
-    
-    &.show{
+    &.show {
         padding: 0;
     }
     .dropdown-item {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: #333;
-      text-transform: capitalize;
-      transition: background-color 0.2s ease;
-        
-      & i{
-        background-color: #d0d0d0;
-        padding: .25rem;
-        border-radius: 8px;
-      }
-      &.despesas:hover i{
-        background-color: #dc4b4bd6;
-        color: $white-color;
-       
-      }
-  
-      &.receita:hover i{
-        background-color: #469f46db;
-        color: $white-color;
-       
-      }
-    }
-    
-  }
-
-.content-header{
-    margin-left: -3rem;
-    border-radius: 0 0 2% 2%;
-    .card{
-        border: none;
-    
-        h3, h4{
-            font-size: 1rem;
-            color: $dark-secundary-color;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #333;
+        text-transform: capitalize;
+        transition: background-color 0.2s ease;
+        i {
+            background-color: #d0d0d0;
+            padding: .25rem;
+            border-radius: 8px;
         }
-        p{
-            font-size: 2rem;
+        &.despesas:hover i {
+            background-color: #dc4b4bd6;
+            color: $white-color;
+        }
+        &.receita:hover i {
+            background-color: #469f46db;
+            color: $white-color;
         }
     }
-
-}
-
-ul.errorlist {
-    background: #ffdddd;
-    color: #d8000c;
-    border: 1px solid #d8000c;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: left;
-    font-size: 14px;
-    list-style: none;
-    margin-bottom: 10px;
 }
