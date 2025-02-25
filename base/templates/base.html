@@ -40,6 +40,10 @@
                         <span class="icon"><i class="ri-list-indefinite"></i></span>
                         <span class="text">Categorias</span>
                     </a>
+                    <a href="{% url 'departamentos:departamento-list'%}" class="menu-item {% if request.path == '/departamentos/' %}active{% endif %}" title="Departamentos">
+                        <span class="icon"><i class="ri-instance-line"></i></span>
+                        <span class="text">Departamentos</span>
+                    </a>
                     <a href="{% url 'documentacao'%}" class="menu-item {% if request.path == '/documentacao/' %}active{% endif %}" title="Documentação">
                         <span class="icon"><i class="ri-book-2-line"></i></span>
                         <span class="text">Documentação</span>
