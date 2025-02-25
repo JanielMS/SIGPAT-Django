@@ -1,0 +1,58 @@
+{% extends './base_app.html' %}
+
+{% block AppContent %}
+{% if bens %}
+<table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Departamento</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for bem in bens %}
+                <tr>
+                    <td>{{ bem.nome }}</td>
+                    <td>{{ bem.categoria.nome }}</td>
+                    <td>{{ bem.departamento.nome }}</td>
+                    <td>{{ bem.valor|floatformat:2 }}</td>
+                    <td>{{ bem.status }}</td>
+                    <td>
+                        <div class="actions">
+                            <a href="{% url 'bens:bem-update' bem.pk %}" class="btn btn-success"><i class="ri-edit-line"></i> Editar</a>
+                            <a href="{% url 'bens:bem-delete' bem.pk %}" class="btn btn-danger"><i class="ri-delete-bin-7-line"></i> Excluir</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+<p>Nenhuma Bem Cadastrado!</p>
+{% endif %}
+
+{% if is_paginated %}
+  <div class="pagination">
+    <span class="step-links">
+        {% if categorias.has_previous %}
+            <a href="?page=1">&laquo; primeira</a>
+            <a href="?page={{ categorias.previous_page_number }}">anterior</a>
+        {% endif %}
+
+        <span class="current">
+            Página {{ categorias.number }} de {{ categorias.paginator.num_pages }}.
+        </span>
+
+        {% if categorias.has_next %}
+            <a href="?page={{ categorias.next_page_number }}">próxima</a>
+            <a href="?page={{ categorias.paginator.num_pages }}">última &raquo;</a>
+        {% endif %}
+    </span>
+  </div>
+{% endif %}
+{% endblock %}
+

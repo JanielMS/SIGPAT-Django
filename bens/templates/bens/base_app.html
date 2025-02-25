@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% comment %} base_app.html {% endcomment %}
+
+{% block PageTitle %}
+Bens
+{% endblock PageTitle %}
+
+{% block content %}
+<div class="p-5">
+    <div class="actions-header d-flex align-items-center justify-content-between">
+        <div>
+            <h2>Bens</h2>
+        </div>
+        <div class="actions">
+            <a href="{% url 'bens:bem-create' %}" class="btn btn-secondary load-modal"><i class="ri-add-line"></i> Novo Bem Patrimônial</a>
+        </div>
+    </div>
+    <div class="mt-5">
+        {% block AppContent %}
+    
+        {% endblock AppContent %}
+    </div>
+</div>
+
+{% endblock content %}

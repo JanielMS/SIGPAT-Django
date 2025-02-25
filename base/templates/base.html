@@ -36,6 +36,10 @@
                         <span class="icon"><i class="ri-home-5-line"></i></span>
                         <span class="text">Inicio</span>
                     </a>
+                    <a href="{% url 'bens:bem-list'%}" class="menu-item {% if request.path == '/bens/' %}active{% endif %}" title="Bens Patrimôniais">
+                        <span class="icon"><i class="ri-box-2-line"></i></span>
+                        <span class="text">Bens Patrim.</span>
+                    </a>
                     <a href="{% url 'movimentacoes:movimentacao-list'%}" class="menu-item {% if request.path == '/movimentacoes/' %}active{% endif %}" title="Movimentações">
                         <span class="icon"><i class="ri-route-line"></i></span>
                         <span class="text">Movimentações</span>

@@ -1,0 +1,14 @@
+{% extends './base_app.html' %}
+
+{% block AppContent %}
+<h1>Confirmar exclusão da categoria: {{ object.nome }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="form-footer">
+        <button type="submit" class="btn btn-primary">Confirmar</button>
+        <a href="{% url 'bens:bem-list' %}" class="btn btn-danger danger-secondary">Cancelar</a>
+    </div>
+</form>
+
+{% endblock %}
