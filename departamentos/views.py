@@ -15,6 +15,13 @@ class DepartamentoListView(LoginRequiredMixin, ListView):
     paginate_by = 15
     login_url = reverse_lazy('login')
 
+    def get_queryset(self):
+        """
+        Filtra os departamentos para exibir apenas os associados ao usuário logado.
+        """
+        return Departamento.objects.filter(usuario=self.request.user)
+
+
 class DepartamentoCreateView(LoginRequiredMixin, CreateView):
     """
     Exibe um formulário para criar um novo departamento.
@@ -41,6 +48,12 @@ class DepartamentoUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('departamentos:departamento-list')
     login_url = reverse_lazy('login')
 
+    def get_queryset(self):
+        """
+        Filtra os departamentos para que o usuário só possa editar os departamentos que ele criou.
+        """
+        return Departamento.objects.filter(usuario=self.request.user)
+
 class DepartamentoDeleteView(LoginRequiredMixin, DeleteView):
     """
     Exibe uma página de confirmação para excluir um departamento.
@@ -50,3 +63,9 @@ class DepartamentoDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'departamentos/departamento_confirm_delete.html'
     success_url = reverse_lazy('departamentos:departamento-list')
     login_url = reverse_lazy('login')
+
+    def get_queryset(self):
+        """
+        Filtra os departamentos para que o usuário só possa excluir os departamentos que ele criou.
+        """
+        return Departamento.objects.filter(usuario=self.request.user)

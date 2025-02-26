@@ -7,21 +7,23 @@ from .forms import FornecedorForm
 class FornecedorListView(LoginRequiredMixin, ListView):
     """
     Exibe a lista de fornecedores cadastrados no sistema.
-
-    Contexto:
-    - fornecedores: Lista de objetos Fornecedor.
+    Apenas usuários autenticados podem visualizar.
     """
     model = Fornecedor
     template_name = 'fornecedores/fornecedor_list.html'
     context_object_name = 'fornecedores'
     login_url = reverse_lazy('login')
 
+    def get_queryset(self):
+        """
+        Filtra os fornecedores para exibir apenas os associados ao usuário logado.
+        """
+        return Fornecedor.objects.filter(usuario=self.request.user)
+
 class FornecedorCreateView(LoginRequiredMixin, CreateView):
     """
     Cria um novo fornecedor.
-
-    Contexto:
-    - form: O formulário de criação de fornecedor.
+    O usuário autenticado será automaticamente atribuído ao fornecedor.
     """
     model = Fornecedor
     form_class = FornecedorForm
@@ -36,9 +38,7 @@ class FornecedorCreateView(LoginRequiredMixin, CreateView):
 class FornecedorUpdateView(LoginRequiredMixin, UpdateView):
     """
     Edita um fornecedor existente.
-
-    Contexto:
-    - form: O formulário de edição do fornecedor.
+    Apenas usuários autenticados podem editar.
     """
     model = Fornecedor
     form_class = FornecedorForm
@@ -46,14 +46,24 @@ class FornecedorUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('fornecedores:fornecedor-list')
     login_url = reverse_lazy('login')
 
+    def get_queryset(self):
+        """
+        Filtra os fornecedores para que o usuário só possa editar os fornecedores que ele criou.
+        """
+        return Fornecedor.objects.filter(usuario=self.request.user)
+
 class FornecedorDeleteView(LoginRequiredMixin, DeleteView):
     """
     Exclui um fornecedor.
-
-    Contexto:
-    - object: O objeto Fornecedor a ser excluído.
+    Apenas usuários autenticados podem excluir.
     """
     model = Fornecedor
     template_name = 'fornecedores/fornecedor_confirm_delete.html'
     success_url = reverse_lazy('fornecedores:fornecedor-list')
     login_url = reverse_lazy('login')
+
+    def get_queryset(self):
+        """
+        Filtra os fornecedores para que o usuário só possa excluir os fornecedores que ele criou.
+        """
+        return Fornecedor.objects.filter(usuario=self.request.user)

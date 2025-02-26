@@ -14,6 +14,12 @@ class BemListView(LoginRequiredMixin, ListView):
     context_object_name = 'bens'
     login_url = reverse_lazy('login')
 
+    def get_queryset(self):
+        """
+        Filtra os bens para exibir apenas os associados ao usuário logado.
+        """
+        return Bem.objects.filter(usuario=self.request.user)
+
 class BemCreateView(LoginRequiredMixin, CreateView):
     """
     Exibe o formulário para criar um novo bem.
@@ -40,6 +46,13 @@ class BemUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('bens:bem-list')
     login_url = reverse_lazy('login')
 
+    def get_queryset(self):
+        """
+        Filtra os bens para que o usuário só possa editar os bens que ele criou.
+        """
+        return Bem.objects.filter(usuario=self.request.user)
+
+
 class BemDeleteView(LoginRequiredMixin, DeleteView):
     """
     Exclui um bem do sistema.
@@ -49,3 +62,10 @@ class BemDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'bens/bem_confirm_delete.html'
     success_url = reverse_lazy('bens:bem-list')
     login_url = reverse_lazy('login')
+
+    def get_queryset(self):
+        """
+        Filtra os bens para que o usuário só possa excluir os bens que ele criou.
+        """
+        return Bem.objects.filter(usuario=self.request.user)
+

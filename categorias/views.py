@@ -15,6 +15,13 @@ class CategoriaListView(LoginRequiredMixin, ListView):
     paginate_by = 15
     login_url = reverse_lazy('login')  # Redireciona para a página de login se não estiver autenticado
 
+    def get_queryset(self):
+        """
+        Filtra as categorias para exibir apenas as associadas ao usuário logado.
+        """
+        return Categoria.objects.filter(usuario=self.request.user)
+
+
 class CategoriaCreateView(LoginRequiredMixin, CreateView):
     """
     Exibe o formulário para criação de uma nova categoria.
@@ -41,6 +48,13 @@ class CategoriaUpdateView(LoginRequiredMixin, UpdateView):
     success_url = reverse_lazy('categorias:categoria-list')
     login_url = reverse_lazy('login')
 
+    def get_queryset(self):
+        """
+        Filtra as categorias para que o usuário só possa editar as categorias que ele criou.
+        """
+        return Categoria.objects.filter(usuario=self.request.user)
+
+
 class CategoriaDeleteView(LoginRequiredMixin, DeleteView):
     """
     Exibe a confirmação para excluir uma categoria. Apenas usuários autenticados podem excluir.
@@ -49,3 +63,10 @@ class CategoriaDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'categorias/categoria_confirm_delete.html'
     success_url = reverse_lazy('categorias:categoria-list')
     login_url = reverse_lazy('login')
+
+    def get_queryset(self):
+        """
+        Filtra as categorias para que o usuário só possa apagar as categorias que ele criou.
+        """
+        return Categoria.objects.filter(usuario=self.request.user)
+
