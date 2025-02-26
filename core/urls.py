@@ -27,6 +27,16 @@ urlpatterns = [
     path('departamentos/', include('departamentos.urls')),
     path('fornecedores/', include("fornecedores.urls")),
     path('movimentacoes/', include("movimentacoes.urls")),
-    path('dashboard/', HomeView.as_view(), name="home"),
+    path('dashboard/', include("dashboard.urls")),
     path('documentacao', DocumentationView.as_view(), name='documentacao')
 ]
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+# Configuração para servir arquivos estáticos em modo de desenvolvimento
+if settings.DEBUG:
+    # Serve arquivos estáticos gerais
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static('/static/docs/', document_root='base/static/docs')

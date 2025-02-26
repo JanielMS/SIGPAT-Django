@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Fornecedor(models.Model):
     """
@@ -17,6 +18,8 @@ class Fornecedor(models.Model):
         cnpj (str): O CNPJ do fornecedor.
         ativo (boolean): Status do fornecedor
     """
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE) 
+
     nome = models.CharField(max_length=255, unique=True, help_text="Nome do fornecedor.")
     email = models.EmailField(unique=True, help_text="E-mail do fornecedor.")
     telefone = models.CharField(max_length=15, blank=True, help_text="Número de telefone do fornecedor.")

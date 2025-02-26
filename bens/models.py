@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 from categorias.models import Categoria
 from departamentos.models import Departamento
 from fornecedores.models import Fornecedor
@@ -29,6 +29,7 @@ class Bem(models.Model):
         ('Em manutenção', 'Em manutenção'),
     ]
     
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE) 
     nome = models.CharField(max_length=255, help_text="Nome do bem.")
     descricao = models.TextField(blank=True, help_text="Descrição do bem.")
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='bens', help_text="Categoria do bem.")
@@ -38,6 +39,7 @@ class Bem(models.Model):
     data_aquisicao = models.DateField(help_text="Data de aquisição do bem.")
     valor = models.DecimalField(max_digits=10, decimal_places=2, help_text="Valor do bem.")
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default='Ativo', help_text="Status do bem.")
+    quantidade = models.PositiveIntegerField(default=1, help_text="Quantidade de bens registrados.")
     
     def __str__(self):
         return self.nome

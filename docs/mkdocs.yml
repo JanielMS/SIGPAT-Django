@@ -5,7 +5,12 @@ site_name: SIGPAT - Sistema de Gestão de Patrimônio
 nav:
  - Inicio: index.md
  - Aplicativos:
+    - Bens: "apps/bens.md"
+    - Categoria: "apps/categorias.md"
+    - Departamentos: "apps/departamentos.md"
+    - Movimentacaos: "apps/movimentacoes.md"
     - Usuarios: "apps/usuarios.md"
+ - Banco de Dados: "database.md"
 
 theme:
   name: material
@@ -13,7 +18,7 @@ theme:
     # - navigation.tabs
     - navigation.instant
     - navigation.expand
-    # - toc.integrate 
+    # - toc.integrate
     - search.highlight
     - content.code.copy
   

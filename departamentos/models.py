@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 
 class Departamento(models.Model):
     """
@@ -11,6 +13,8 @@ class Departamento(models.Model):
         nome (str): Nome do departamento, por exemplo, 'TI', 'Financeiro', etc.
         descricao (str): Descrição adicional sobre o departamento.
     """
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE) 
+    
     nome = models.CharField(max_length=100, unique=True, help_text="Nome do departamento, como TI, RH, etc.")
     descricao = models.TextField(blank=True, help_text="Descrição do departamento.")
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Categoria(models.Model):
     """
@@ -12,6 +13,8 @@ class Categoria(models.Model):
         nome (str): Nome da categoria, por exemplo, 'Tecnologia', 'Móveis'.
         descricao (str): Descrição adicional sobre a categoria.
     """
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE) 
+
     nome = models.CharField(max_length=100, unique=True, help_text="Nome da categoria do bem. Ex: Computadores, Móveis.")
     descricao = models.TextField(blank=True, help_text="Descrição detalhada da categoria.")
 

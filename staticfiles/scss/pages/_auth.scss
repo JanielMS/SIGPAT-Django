@@ -1,0 +1,171 @@
+// ===========================
+// Authentication Page Styles
+// ===========================
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import './../partials/variables';
+
+:root {
+    --font-header: 'Bebas Neue', serif;
+    --error-color: #d8000c;
+    --error-bg: #ffdddd;
+    --border-light: #ccc;
+    --text-light: #666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+// ===========================
+// Layout
+// ===========================
+.body-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, $primary-color, darken($primary-color, 10%));
+    padding: 1rem;
+}
+
+.container-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+}
+
+// ===========================
+// Authentication Form Box
+// ===========================
+.form-auth-box {
+    background: $white-color;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+
+    h2 {
+        font-size: 2rem;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+        color: $dark-color;
+        font-family: var(--font-header);
+    }
+    
+    h3 {
+        color: $primary-color;
+        font-family: var(--font-header);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: .8rem;
+
+        span {
+            color: $dark-color;
+        }
+    }
+    
+    form {
+        p {
+            text-align: left;
+            margin-bottom: 12px;
+        }
+        
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            font-size: 15px;
+            outline: none;
+            transition: border 0.3s ease-in-out;
+            &:focus {
+                border: 1px solid $primary-color;
+                box-shadow: 0 0 5px rgba($primary-color, 0.5);
+            }
+        }
+        
+        .helptext {
+            font-size: 12px;
+            color: var(--text-light);
+            display: block;
+            margin-top: 5px;
+        }
+
+        ul {
+            padding-left: 18px;
+            margin: 5px 0 0;
+            list-style: square;
+            text-align: left;
+            li {
+                font-size: 14px;
+                color: var(--text-light);
+            }
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: $primary-color;
+            color: $white-color;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+            &:hover {
+                background: darken($primary-color, 10%);
+            }
+        }
+        
+        ul.errorlist {
+            background: var(--error-bg);
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+            padding: 10px;
+            border-radius: 6px;
+            text-align: left;
+            font-size: 14px;
+            list-style: none;
+            margin-bottom: 10px;
+        }
+    }
+
+    p {
+        margin-top: 12px;
+        text-align: left;
+    }
+    
+    a {
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: 500;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+// ===========================
+// Responsive Design
+// ===========================
+@media (max-width: 480px) {
+    .form-auth-box {
+        padding: 18px;
+    }
+    input, button {
+        font-size: 14px;
+    }
+}

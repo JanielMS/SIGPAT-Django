@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="p-5">
+        <div class="dashboard">
+            <!-- Título de boas-vindas -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Bem-vindo ao SIGPAT</h1>
+                    <p>Aqui estão os indicadores principais do sistema.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3>Total de Bens</h3>
+                        <p>{{ total_bens }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3>Total de Movimentações</h3>
+                        <p>{{ total_movimentacoes }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card">
+                        <h3>Total de Valor dos Bens</h3>
+                        <p>{{ valor_total_bens|floatformat:2 }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Gráfico de Bens por Status -->
+            <div class="row">
+                
+                <!-- Gráfico de Bens por Categoria -->
+                <div class="col-lg-6 col-md-12">
+                    <h4>Bens por Categoria</h4>
+                    <canvas id="bensCategoriaChart" class="chart"></canvas>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <h4>Bens por Status</h4>
+                    <canvas id="bensStatusChart" class="chart"></canvas>
+                </div>
+            </div>
+            <!-- Gráfico de Bens por Departamento -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Bens por Departamento</h4>
+                    <canvas id="bensDepartamentoChart" class="chart"></canvas>
+                </div>
+            </div>
+            <!-- Exibição das Últimas Movimentações -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4>Últimas Movimentações</h4>
+                    <ul>
+                        {% for movimentacao in ultimas_movimentacoes %}
+                            <li>{{ movimentacao.bem.nome }} - {{ movimentacao.data_movimentacao }} - {{ movimentacao.tipo }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Gráfico de Bens por Status
+        const bensStatusCtx = document.getElementById('bensStatusChart').getContext('2d');
+        const bensStatusChart = new Chart(bensStatusCtx, {
+            type: 'pie',
+            data: {
+                labels: [{% for item in bens_por_status %}'{{ item.status }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Bens por Status',
+                    data: [{% for item in bens_por_status %}{{ item.total }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe', '#ffce56'],
+                }]
+            }
+        });
+
+        // Gráfico de Bens por Categoria
+        const bensCategoriaCtx = document.getElementById('bensCategoriaChart').getContext('2d');
+        const bensCategoriaChart = new Chart(bensCategoriaCtx, {
+            type: 'bar',
+            data: {
+                labels: [{% for item in bens_por_categoria %}'{{ item.categoria__nome }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Bens por Categoria',
+                    data: [{% for item in bens_por_categoria %}{{ item.total }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: '#36a2eb',
+                    borderColor: '#36a2eb',
+                    borderWidth: 1
+                }]
+            }
+        });
+
+        // Gráfico de Bens por Departamento
+        const bensDepartamentoCtx = document.getElementById('bensDepartamentoChart').getContext('2d');
+        const bensDepartamentoChart = new Chart(bensDepartamentoCtx, {
+            type: 'bar',
+            data: {
+                labels: [{% for item in bens_por_departamento %}'{{ item.departamento__nome }}'{% if not forloop.last %}, {% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Bens por Departamento',
+                    data: [{% for item in bens_por_departamento %}{{ item.total }}{% if not forloop.last %}, {% endif %}{% endfor %}],
+                    backgroundColor: '#ffce56',
+                    borderColor: '#ffce56',
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+
+{% endblock %}

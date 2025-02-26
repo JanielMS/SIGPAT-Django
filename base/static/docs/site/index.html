@@ -5,6 +5,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="apps/bens/" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.4" name="generator"/>
 <title>SIGPAT - Sistema de Gestão de Patrimônio</title>
@@ -12,6 +13,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="assets/_mkdocstrings.css" rel="stylesheet"/>
 <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body dir="ltr">
@@ -19,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#bem-vindo-a-documentacao-sigpat">
+<a class="md-skip" href="#sigpat-sistema-de-gestao-de-patrimonio">
           Skip to content
         </a>
 </div>
@@ -43,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Bem-vindo a Documentação SIGPAT
+              Inicio
             
           </span>
 </div>
@@ -88,7 +90,7 @@
 <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
-<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--integrated" data-md-level="0">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
 <a aria-label="SIGPAT - Sistema de Gestão de Patrimônio" class="md-nav__button md-logo" data-md-component="logo" href="." title="SIGPAT - Sistema de Gestão de Patrimônio">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
@@ -100,14 +102,14 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    Bem-vindo a Documentação SIGPAT
+    Inicio
     
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href=".">
 <span class="md-ellipsis">
-    Bem-vindo a Documentação SIGPAT
+    Inicio
     
   </span>
 </a>
@@ -118,21 +120,143 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#funcionalidades">
+<a class="md-nav__link" href="#visao-geral">
 <span class="md-ellipsis">
-      📌 Funcionalidades
+      🚀 Visão Geral
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#exemplo-de-diagrama-mermaid">
+<a class="md-nav__link" href="#estrutura-do-sistema">
 <span class="md-ellipsis">
-      📊 Exemplo de Diagrama Mermaid
+      📌 Estrutura do Sistema
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#secoes-da-documentacao">
+<span class="md-ellipsis">
+      📖 Seções da Documentação
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tecnologias-utilizadas">
+<span class="md-ellipsis">
+      🛠️ Tecnologias Utilizadas
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Aplicativos
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            Aplicativos
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="apps/bens/">
+<span class="md-ellipsis">
+    Bens
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="apps/categorias/">
+<span class="md-ellipsis">
+    Categoria
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="apps/departamentos/">
+<span class="md-ellipsis">
+    Departamentos
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="apps/movimentacoes/">
+<span class="md-ellipsis">
+    Movimentacaos
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="apps/usuarios/">
+<span class="md-ellipsis">
+    Usuarios
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="database/">
+<span class="md-ellipsis">
+    Banco de Dados
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#visao-geral">
+<span class="md-ellipsis">
+      🚀 Visão Geral
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estrutura-do-sistema">
+<span class="md-ellipsis">
+      📌 Estrutura do Sistema
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#secoes-da-documentacao">
+<span class="md-ellipsis">
+      📖 Seções da Documentação
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tecnologias-utilizadas">
+<span class="md-ellipsis">
+      🛠️ Tecnologias Utilizadas
+    </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -141,22 +265,51 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="bem-vindo-a-documentacao-sigpat">Bem-vindo a Documentação SIGPAT</h1>
-<p>SIGPAT é um sistema para a gestão de patrimônio, desenvolvido com Django.</p>
-<h2 id="funcionalidades">📌 Funcionalidades</h2>
-<ul>
-<li>Cadastro e rastreamento de bens</li>
-<li>Gestão de categorias, departamentos e fornecedores</li>
-<li>Movimentação e histórico de ativos</li>
-<li>Dashboard com indicadores</li>
-</ul>
-<h2 id="exemplo-de-diagrama-mermaid">📊 Exemplo de Diagrama Mermaid</h2>
+<h1 id="sigpat-sistema-de-gestao-de-patrimonio">🏛️ SIGPAT - Sistema de Gestão de Patrimônio</h1>
+<p>Bem-vindo à documentação oficial do <strong>SIGPAT</strong>, um sistema web para <strong>gestão de patrimônio</strong>, permitindo controle eficiente de bens, rastreamento, movimentações e administração de usuários.  </p>
+<hr/>
+<h2 id="visao-geral">🚀 Visão Geral</h2>
+<p>O <strong>SIGPAT</strong> é uma solução projetada para facilitar a gestão patrimonial de organizações, oferecendo funcionalidades como:  </p>
+<p>✅ <strong>Cadastro e categorização de bens</strong><br/>
+✅ <strong>Rastreamento por código RFID</strong><br/>
+✅ <strong>Movimentação de bens entre departamentos</strong><br/>
+✅ <strong>Gestão de fornecedores e aquisições</strong><br/>
+✅ <strong>Painel de controle com indicadores</strong><br/>
+✅ <strong>Controle de permissões e usuários</strong> </p>
+<hr/>
+<h2 id="estrutura-do-sistema">📌 Estrutura do Sistema</h2>
 <pre class="mermaid"><code>graph TD;
-    A[Bem] --&gt;|Pertence a| B[Categoria];
-    A --&gt;|Localizado em| C[Departamento];
-    A --&gt;|Fornecido por| D[Fornecedor];
-    A --&gt;|Movimentado por| E[Usuário];
+    A[Usuário] --&gt;|Acessa| B[Dashboard]
+    B --&gt; C[Gerenciamento de Bens]
+    B --&gt; D[Movimentações]
+    B --&gt; E[Departamentos]
+    B --&gt; F[Fornecedores]
+    B --&gt; G[Usuários &amp; Permissões]
+    C --&gt; H[Categorias]
+    C --&gt; I[Rastreamento RFID]
+    D --&gt; J[Histórico de Movimentações]
+    G --&gt; K[Autenticação]
+    G --&gt; L[Controle de Grupos]
 </code></pre>
+<hr/>
+<h2 id="secoes-da-documentacao">📖 Seções da Documentação</h2>
+<p>📂 <strong><a href="#">Módulos do Sistema</a></strong> – Estrutura e funcionamento dos aplicativos Django<br/>
+📂 <strong><a href="#">Banco de Dados</a></strong> – Modelos e relacionamentos entre tabelas<br/>
+📂 <strong><a href="#">API e Endpoints</a></strong> – Comunicação entre o frontend e backend<br/>
+📂 <strong><a href="#">Autenticação e Permissões</a></strong> – Como funciona o controle de acesso<br/>
+📂 <strong><a href="#">Guia de Desenvolvimento</a></strong> – Configuração do ambiente e contribuições  </p>
+<p>Para explorar a documentação completa, utilize o menu lateral. 📚  </p>
+<hr/>
+<h2 id="tecnologias-utilizadas">🛠️ Tecnologias Utilizadas</h2>
+<p>O <strong>SIGPAT</strong> é desenvolvido com as seguintes tecnologias:  </p>
+<ul>
+<li><strong>🟢 Django</strong> – Framework web para backend  </li>
+<li><strong>⚡ SQlite</strong> – Banco de dados relacional  </li>
+<li><strong>📊 Chart.js &amp; Recharts</strong> – Gráficos e visualizações  </li>
+<li><strong>💻 Bootstrap &amp; SCSS</strong> – Interface moderna e responsiva  </li>
+<li><strong>📄 MkDocs &amp; Mermaid.js</strong> – Documentação automatizada  </li>
+</ul>
+<hr/>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -180,7 +333,7 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "toc.integrate", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "search.highlight", "content.code.copy"], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
 <script src="assets/javascripts/bundle.f1b6f286.min.js"></script>
 <script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
 window.mermaidConfig = {default: {

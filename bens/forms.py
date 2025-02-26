@@ -10,7 +10,7 @@ class BemForm(forms.ModelForm):
     """
     class Meta:
         model = Bem
-        fields = ['nome', 'descricao', 'categoria', 'departamento', 'fornecedor', 'rfid_codigo', 'data_aquisicao', 'valor', 'status']
+        fields = ['nome', 'descricao', 'categoria', 'departamento', 'fornecedor', 'rfid_codigo', 'data_aquisicao', 'valor', 'quantidade', 'status']
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

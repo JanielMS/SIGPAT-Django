@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Movimentacao(models.Model):
     """
@@ -25,6 +26,8 @@ class Movimentacao(models.Model):
         ('Desativação', 'Desativação'),
     ]
     
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE) 
+
     bem = models.ForeignKey('bens.Bem', on_delete=models.CASCADE, related_name='movimentacoes', help_text="Bem que está sendo movimentado.")
     data_movimentacao = models.DateTimeField(default=timezone.now, help_text="Data e hora da movimentação.")
     tipo_movimentacao = models.CharField(max_length=50, choices=TIPOS_MOVIMENTACAO, help_text="Tipo de movimentação realizada.")
